@@ -4,3 +4,7 @@
 *.gif
 DataSet/
 temp/
+.DS_Store
+*.pyc
+static/dataset
+static/photos

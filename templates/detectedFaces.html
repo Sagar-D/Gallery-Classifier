@@ -1,0 +1,9 @@
+{% extends "galleryBase.html" %}
+{% block content %}
+{% for row in data %}
+<div class="col-md-3" align="center" style="margin:0px;padding:0px">
+<img class="img-thumbnail" src="/renderFile/{{row[1]}}" alt="Card image cap" style="width:100%;height:250px;">
+<p align="center">{{row[0]}}</p>
+</div>
+{% endfor %}
+{% endblock %}

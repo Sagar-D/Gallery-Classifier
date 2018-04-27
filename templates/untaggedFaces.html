@@ -1,0 +1,21 @@
+{% extends "galleryBase.html" %}
+{% block content %}
+<form action="/tagFaces" method="post" name='tagFacesForm' enctype="multipart/form-data">
+{% set count=0 %}
+{% for row in data %}
+
+<div class="col-md-3" align="center" style="padding:5px;margin-bottom: 20px">
+<img src="/renderFile/{{row[1]}}"/ style="width:100%;height:100%" class="img-thumbnail" style="margin-bottom: 20px;">
+<br>
+<input type="text" list="taggedfaces" id="{{row[0]}}" name="{{row[0]}}" align="center" placeholder="Name" class="form-control">
+<datalist id="taggedfaces">
+	{% for taggedFace in taggedFaces %}
+		<option value="{{taggedFace[1]+ ' - ID' + taggedFace[0]|string}}">
+	{% endfor %}
+</datalist>
+</div>
+
+{% endfor %}
+<input type="submit" name="Add Tags" value="Add Tags" class="form-control" style="color:#ffffff;background: #303030;height: 50px;margin-bottom: 20px">
+</form>
+{% endblock %}

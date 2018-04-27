@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar-inverse navbar-fixed-top" style="padding-top: 5px;padding-bottom: 5px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand active" href="#">GALLERY</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="/gallery">Home</a></li>
+      <li><a href="/showFaces">People </a></li>
+      <li><a href="/untaggedFaces">Tag People </a></li>
+    </ul>
+
+    <form class="navbar-form navbar-left" action="/action_page.php">
+  		<div class="input-group" style="margin-left: 100px;">
+    		<input type="text" class="form-control" placeholder="Search by Name" style="width:400px;">
+			<div class="input-group-btn">
+  				<button class="btn btn-default" type="submit">
+    			<i class="glyphicon glyphicon-search"></i>
+  				</button>
+			</div>
+ 		</div>
+	</form>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/addPhotos"><span class="glyphicon glyphicon-plus"></span> Add Photos</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid" style="padding:0;margin:0;padding-top: 60px;" align="center">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{% extends "galleryBase.html" %}
+{% block content %}
+<link rel="stylesheet" href = "{{ url_for('static', filename = 'addPhotos.css') }}" >
+<script type="text/javascript">
+function($) {
+    'use strict';
+
+    // UPLOAD CLASS DEFINITION
+    // ======================
+
+    var dropZone = document.getElementById('drop-zone');
+    var uploadForm = document.getElementById('js-upload-form');
+
+    var startUpload = function(files) {
+        console.log(files)
+    }
+
+    uploadForm.addEventListener('submit', function(e) {
+        var uploadFiles = document.getElementById('js-upload-files').files;
+        e.preventDefault()
+
+        startUpload(uploadFiles)
+    })
+
+    dropZone.ondrop = function(e) {
+        e.preventDefault();
+        this.className = 'upload-drop-zone';
+
+        startUpload(e.dataTransfer.files)
+    }
+
+    dropZone.ondragover = function() {
+        this.className = 'upload-drop-zone drop';
+        return false;
+    }
+
+    dropZone.ondragleave = function() {
+        this.className = 'upload-drop-zone';
+        return false;
+    }
+
+}(jQuery);
+</script>
+<div class="panel panel-default">
+<div class="panel-heading"><strong>Upload Photos</strong> <small>Select photos to upload</small></div>
+<div class="panel-body">
+
+  <!-- Standar Form -->
+  <h4>Select photos from your computer</h4>
+  <form action="/uploadPhotos" method="post" enctype="multipart/form-data" id="js-upload-form">
+    <div class="form-inline">
+      <div class="form-group">
+        <input type="file" name="file" id="files" multiple>
+      </div>
+      <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit" style="color: #ffffff;background: #303030">Upload Photos</button>
+    </div>
+  </form>
+
+  <!-- Drop Zone -->
+  <h4>Or drag and drop files below</h4>
+  <div class="upload-drop-zone" id="drop-zone">
+    Just drag and drop files here
+  </div>
+
+</div>
+</div>
+
+
+{% endblock %}
